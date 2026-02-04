@@ -1,0 +1,383 @@
+/* 整个盘面容器 */
+.qimen-container {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    max-width: 600px;
+}
+
+/* 头部信息 */
+.qimen-header {
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: 5px;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* 九宫格布局 */
+.qimen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+/* 单个宫位 */
+.qimen-cell {
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+    position: relative;
+}
+
+/* 宫位名称 (坎、离等) */
+.gong-name {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+/* 宫内神星门 */
+.plate-layer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* 奇仪 (天盘+地盘) */
+.stems-layer {
+    margin-top: 4px;
+    text-align: right;
+    font-weight: normal;
+}
+
+/* 马星和空亡标记 */
+.special-marker {
+    color: var(--text-accent);
+    font-size: 0.8em;
+    margin-right: 2px;
+}
+
+/* 修复的样式 - 修复间距问题 */
+.qm-container { 
+    padding: 10px; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    overflow-y: auto; 
+}
+.qm-card { 
+    background: var(--background-primary); 
+    border: 1px solid var(--background-modifier-border); 
+    border-radius: 8px; 
+    padding: 10px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+    margin-bottom: 10px; 
+}
+
+/* 盘面网格 */
+.qm-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 1px; 
+    background-color: var(--background-modifier-border); 
+    border: 1px solid var(--background-modifier-border); 
+    margin-bottom: 10px; 
+}
+.qm-cell { 
+    background-color: var(--background-primary); 
+    aspect-ratio: 1; 
+    padding: 4px 6px; 
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100px; 
+}
+
+/* 盘面头部信息 */
+.qm-header-num { 
+    font-size: 1.1em; 
+    font-weight: bold; 
+    color: var(--text-normal); 
+    margin-bottom: 4px; 
+}
+.qm-header-gz { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 1em; 
+    font-weight: bold; 
+    margin-bottom: 4px; 
+}
+.qm-header-sub { 
+    font-size: 0.85em; 
+    color: var(--text-muted); 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 4px;  /* 修复间距 */
+    align-items: center;  /* 垂直居中对齐 */
+}
+
+/* 修复值符和值使的间距 */
+.qm-header-sub .qm-symbol {
+    margin-right: 2px;
+}
+.qm-header-sub .qm-symbol:last-child {
+    margin-right: 0;
+}
+
+/* 底部控制栏 */
+.qm-chart-controls { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 5px; 
+    margin-top: 10px; 
+}
+.qm-ctrl-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 2px; 
+}
+.qm-btn { 
+    padding: 6px 2px; 
+    font-size: 12px; 
+    cursor: pointer; 
+    text-align: center; 
+    border: 1px solid var(--background-modifier-border); 
+    border-radius: 4px; 
+    background: var(--interactive-normal); 
+}
+.qm-btn:hover { 
+    background: var(--interactive-hover); 
+}
+.qm-label { 
+    font-size: 10px; 
+    text-align: center; 
+    color: var(--text-muted); 
+    margin-bottom: 2px;
+}
+
+/* 盘面操作栏 */
+.qm-chart-actions { 
+    display: flex; 
+    gap: 10px; 
+    margin-top: 10px; 
+    border-top: 1px solid var(--background-modifier-border); 
+    padding-top: 10px; 
+}
+.qm-action-btn { 
+    flex: 1; 
+    cursor: pointer; 
+    background: var(--background-secondary); 
+    border: 1px solid var(--background-modifier-border); 
+    padding: 8px; 
+    border-radius: 6px; 
+    text-align: center; 
+    font-size: 0.9em; 
+}
+.qm-action-btn:hover { 
+    background: var(--background-secondary-alt); 
+}
+.qm-btn-primary { 
+    background: var(--interactive-accent); 
+    color: var(--text-on-accent); 
+    border: none; 
+}
+.qm-btn-primary:hover { 
+    background: var(--interactive-accent-hover); 
+}
+
+/* 四行布局 */
+.qm-line-1 { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    height: 25%; 
+}
+.qm-line-2 { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 25%; 
+}
+.qm-line-3 { 
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+    height: 25%; 
+}
+.qm-line-4 { 
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: flex-end; 
+    height: 25%; 
+}
+
+.qm-god { 
+    font-size: 1.25em; 
+    font-weight: bold; 
+    line-height: 1; 
+}
+.qm-marker-group { 
+    font-size: 0.7em; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+    line-height: 1.1; 
+    opacity: 0.8; 
+}
+.qm-star { 
+    font-size: 1em; 
+    font-weight: bold; 
+}
+.qm-door { 
+    font-size: 1em; 
+}
+.qm-stem { 
+    font-size: 1.1em; 
+    font-weight: bold; 
+    width: 1.2em; 
+    text-align: center; 
+}
+.qm-center-txt { 
+    position: absolute; 
+    top:50%; 
+    left:50%; 
+    transform:translate(-50%,-50%); 
+    text-align:center; 
+}
+
+/* === 视图B：时间流 === */
+.qm-tf-header { 
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 15px; 
+}
+.qm-tf-gen-btn { 
+    flex: 1; 
+    background: var(--interactive-accent); 
+    color: white; 
+    border: none; 
+    padding: 10px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    text-align: center; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+.qm-tf-gen-btn:hover { 
+    background: var(--interactive-accent-hover); 
+}
+
+.qm-tf-row { 
+    margin-bottom: 15px; 
+    border-bottom: 1px dashed var(--background-modifier-border); 
+    padding-bottom: 10px; 
+}
+.qm-tf-label { 
+    font-size: 1em; 
+    font-weight: bold; 
+    margin-bottom: 6px; 
+    color: var(--text-normal); 
+    border-left: 3px solid var(--interactive-accent); 
+    padding-left: 6px; 
+}
+.qm-tf-scroller { 
+    display: flex; 
+    overflow-x: auto; 
+    gap: 6px; 
+    padding-bottom: 6px; 
+    scrollbar-width: thin; 
+    min-height: 60px; 
+    align-items: center; 
+}
+.qm-tf-scroller::-webkit-scrollbar { 
+    height: 4px; 
+}
+.qm-tf-scroller::-webkit-scrollbar-thumb { 
+    background: var(--background-modifier-border); 
+    border-radius: 2px; 
+}
+
+.qm-tf-item { 
+    flex: 0 0 auto; 
+    min-width: 60px; 
+    padding: 6px 4px; 
+    background: var(--background-secondary); 
+    border: 1px solid var(--background-modifier-border); 
+    border-radius: 6px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: all 0.1s; 
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center; 
+}
+.qm-tf-item:hover { 
+    background: var(--background-secondary-alt); 
+    border-color: var(--text-muted); 
+}
+.qm-tf-item.active { 
+    background: var(--interactive-accent); 
+    color: var(--text-on-accent); 
+    border-color: var(--interactive-accent); 
+}
+.qm-tf-gz { 
+    font-weight: bold; 
+    font-size: 1.1em; 
+    line-height: 1.2; 
+}
+.qm-tf-sub { 
+    font-size: 0.75em; 
+    opacity: 0.9; 
+    white-space: nowrap; 
+    font-family: monospace; 
+    line-height: 1.2; 
+    margin-top: 2px; 
+}
+.qm-tf-time { 
+    font-size: 0.7em; 
+    opacity: 0.7; 
+    margin-top: 1px; 
+}
+
+/* 设置页列表 */
+.qm-settings-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    margin-top: 10px; 
+}
+.qm-settings-item { 
+    border: 1px solid var(--background-modifier-border); 
+    border-radius: 6px; 
+    padding: 10px; 
+    background: var(--background-secondary); 
+}
+.qm-settings-meta { 
+    font-size: 0.8em; 
+    color: var(--text-muted); 
+    margin-bottom: 5px; 
+}
+.qm-settings-actions { 
+    display: flex; 
+    gap: 10px; 
+    margin-top: 5px; 
+    justify-content: flex-end; 
+}
+
+/* 五行色 */
+.c-wood { color: #4caf50 !important; }
+.c-fire { color: #f44336 !important; }
+.c-earth { color: #d7aefb !important; } .theme-light .c-earth { color: #795548 !important; }
+.c-metal { color: #ffb74d !important; } .theme-light .c-metal { color: #f57c00 !important; }
+.c-water { color: #42a5f5 !important; }

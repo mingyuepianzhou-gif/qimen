@@ -1,0 +1,10 @@
+{
+	"id": "obsidian-qimen",
+	"name": "Qimen Dunjia Chart",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Render a Qi Men Dun Jia chart using a code block.",
+	"author": "YourName",
+	"authorUrl": "https://github.com/yourname",
+	"isDesktopOnly": false
+}
